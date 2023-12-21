@@ -1,6 +1,6 @@
 import { readBag } from '$lib/server';
 import { json } from '@sveltejs/kit';
-import { addPokemonToBag } from '$lib/server';
+import { addPokemonToBag, deletePokemonFromBag } from '$lib/server';
 import { randomUUID } from 'crypto';
 import pokemon from '../../../lib/file.json';
 
@@ -15,4 +15,10 @@ export async function POST({ params }) {
 		name: pokemon[parseInt(params.id) - 1].name
 	});
 	return json(newBag);
+}
+
+export async function DELETE({ params }) {
+	const uuid = params.id;
+	deletePokemonFromBag(uuid);
+	return new Response();
 }

@@ -9,6 +9,12 @@ export function addPokemonToBag(pokemon: PokemonInBag) {
 	return bag;
 }
 
+export function deletePokemonFromBag(uuid: string) {
+	bag = bag.filter((pokemon) => pokemon.uuid !== uuid);
+	saveBag();
+	return bag.length;
+}
+
 export function readBag() {
 	try {
 		const data = readFileSync('generated/bag.json', 'utf-8');
