@@ -17,7 +17,7 @@
         const interval = setInterval(() => {
             const id = randomNumber(pokemons.length) +1 ;
             preys = [...preys, {id, key:Date.now()}]
-            console.log(preys)
+            // console.log(preys)
         }, 1000);
         return () => {
             clearInterval(interval)

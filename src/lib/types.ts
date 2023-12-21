@@ -5,4 +5,5 @@ export type Pokemon = (typeof data)[number];
 export type PokemonInBag = {
 	id: number;
 	uuid: string;
+	name: string;
 };

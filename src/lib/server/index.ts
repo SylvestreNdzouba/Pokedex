@@ -5,8 +5,7 @@ let bag: PokemonInBag[] = readBag();
 
 export function addPokemonToBag(pokemon: PokemonInBag) {
 	bag = [...bag, pokemon];
-	const s = JSON.stringify(bag);
-	writeFileSync('generated/bag.json', s);
+	saveBag();
 	return bag;
 }
 
@@ -18,4 +17,8 @@ export function readBag() {
 		console.log('No file');
 		return [];
 	}
+}
+
+export function saveBag() {
+	writeFileSync('generated/bag.json', JSON.stringify(bag));
 }
